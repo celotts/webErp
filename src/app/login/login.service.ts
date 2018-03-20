@@ -97,7 +97,7 @@ export class LoginService {
   }
 
   /**
-   * Opcion para navegar
+   * Opcion para navegar.
    * @param item
    */
   navegar(item):void{
