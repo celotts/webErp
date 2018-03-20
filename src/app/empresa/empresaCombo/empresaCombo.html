@@ -1,0 +1,15 @@
+<!--
+ * Fecha de la Creación: 11/03/2018.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: empresaCombo.
+ * Comentario:
+-->
+<div class="select">
+  <select id="selects_1" #selectElem [(ngModel)]="aM.getData[0].usuarioConect[0].idEmpresa"
+          (change)="selecciona(selectElem.value)">
+    <option *ngFor="let item of aM.getData[0].empresa[0].empresaCombo"
+            [value]="item.idEmpresa">{{item.nombre}} </option>
+  </select>
+</div>

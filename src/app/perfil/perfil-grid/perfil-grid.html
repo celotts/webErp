@@ -1,0 +1,99 @@
+<!--
+ * Fecha de la Creación: 12/03/2018.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: perfil-grid.
+ * Comentario:
+-->
+<button class="btn btn-primary" (click)="newReg()">+ Perfil</button>
+
+<clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+    <!-- Header grid -->
+    <clr-dg-column [clrDgField]="'nombre'" [(clrFilterValue)]="myFilterValue">
+        Nombre
+    </clr-dg-column>
+
+    <!-- Deail Grid -->
+    <clr-dg-row *ngFor="let item of aM.getData[0].Perfil[0].PerfilData"
+                class="content-row"
+                [clrDgItem]="item" (click)="selecciona(item)">
+        <clr-dg-cell>{{item.nombre}}</clr-dg-cell>
+        <clr-dg-action-overflow>
+            <button class="action-item"
+                    (click)="editReg(item)" *ngIf="item.nombre!='PROGRAMADOR'">Edit</button>
+            <button class="action-item"
+                    (click)="AsigEmp(item)">Asignar Empresa</button>
+            <button class="action-item"
+                    (click)="AsiMenu(item)">Asignar Menú</button>
+            <button class="action-item"
+                    (click)="delReg(item)" *ngIf="item.nombre!='PROGRAMADOR'">Eliminar</button>
+        </clr-dg-action-overflow>
+    </clr-dg-row>
+    <!-- Footer -->
+    <clr-dg-footer>
+        <!-- Paginacion -->
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{aM.getData[0].Perfil[0].PerfilGrid[0].totRegistro*1}} Registros
+        <clr-dg-pagination #pagination [clrDgTotalItems]="aM.getData[0].Perfil[0].PerfilGrid[0].totRegistro" [clrDgPageSize]="aM.getData[0].pageSize"></clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>
+<!-- Indicador cargando form -->
+<div style="font-weight: bold; text-align: right; Color: teal" *ngIf="cargando">
+    Cargando petición...
+</div>
+<clr-modal [(clrModalOpen)]="aM.getData[0].Perfil[0].PerfilForm[0].modalForm">
+    <h3 class="modal-title" style="font-weight: bold">
+        <div class="row">
+            <div class="col-lg-8">
+                Datos Perfil
+            </div>
+            <div class="col-lg-4" style="font-weight: bold; text-align: right; font-size: 13px">
+                <span>
+                    Modo:
+                </span>
+                <span>
+                    {{aM.getData[0].Perfil[0].PerfilForm[0].tituloForm}}
+                </span>
+            </div>
+        </div>
+
+    </h3>
+    <div class="modal-body">
+        <form>
+            <section class="form-block">
+                <!-- form -->
+                <my-perfil-form></my-perfil-form>
+                <!-- Mensaje Success -->
+                <my-mensaje-success></my-mensaje-success>
+            </section>
+        </form>
+    </div>
+    <div class="modal-footer">
+
+        <button [clrLoading]="saveLoading"
+                class="btn btn-success-outline"
+                (click)="saveForm()">Guardar</button>
+        <button class="btn btn-primary"
+                (click)="cerrarModalForm()">Cerrar</button>
+    </div>
+
+</clr-modal>
+<!------------------------------------------->
+<clr-modal [(clrModalOpen)]="aM.getData[0].Perfil[0].PerfilForm[0].modalDelete">
+    <h3 class="modal-title">Mensaje</h3>
+    <div class="modal-body">
+        <p>Desea eliminar el registro {{aM.getData[0].Perfil[0].PerfilForm[0].nombre}}.?</p>
+        <p style="color: red">..:: Esta Acción eliminará los registros asociado a esta opción ::..</p>
+
+    </div>
+    <div class="modal-footer">
+        <button [clrLoading]="delloading"
+                class="btn btn-success-outline"
+                (click)="eliminarDatosPerfil()">Eliminar</button>
+
+        <button class="btn btn-primary"
+                (click)="cerrarDel()">Cerrar</button>
+    </div>
+
+</clr-modal>

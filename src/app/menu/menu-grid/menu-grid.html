@@ -1,0 +1,106 @@
+<!--
+ * Fecha de la Creación: 13/03/2018.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: menu-grid.
+ * Comentario:
+-->
+<button class="btn btn-primary" (click)="newReg()">+ Menú</button>
+
+<clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+    <!-- Header grid -->
+    <clr-dg-column [clrDgField]="'nombre'" [(clrFilterValue)]="myFilterValue">
+        Nombre
+    </clr-dg-column>
+    <clr-dg-column >
+        Controlador
+    </clr-dg-column>
+    <clr-dg-column>
+        Icono
+    </clr-dg-column>
+    <!-- Deail Grid -->
+    <clr-dg-row *ngFor="let item of aM.getData[0].Menu[0].MenuData"
+                class="content-row"
+                [clrDgItem]="item" (click)="selecciona(item)">
+        <clr-dg-cell>{{item.nombre}}</clr-dg-cell>
+        <clr-dg-cell>{{item.controlador}}</clr-dg-cell>
+        <clr-dg-cell><clr-icon [attr.shape]="item.icono"></clr-icon></clr-dg-cell>
+        <clr-dg-action-overflow>
+            <button class="action-item"
+                    (click)="editReg(item)">Edit</button>
+            <button class="action-item"
+                    (click)="AsigPerfil(item)">Asignar Perfil</button>
+            <button class="action-item"
+                    (click)="AsiModulo(item)">Asignar Modulo</button>
+            <button class="action-item"
+                    (click)="delReg(item)">Eliminar</button>
+        </clr-dg-action-overflow>
+    </clr-dg-row>
+    <!-- Footer -->
+    <clr-dg-footer>
+        <!-- Paginacion -->
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        de {{aM.getData[0].Menu[0].MenuGrid[0].totRegistro*1}} Registros
+        <clr-dg-pagination #pagination [clrDgTotalItems]="aM.getData[0].Menu[0].MenuGrid[0].totRegistro" [clrDgPageSize]="aM.getData[0].pageSize"></clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>
+<!-- Indicador cargando form -->
+<div style="font-weight: bold; text-align: right; Color: teal" *ngIf="cargando">
+    Cargando petición...
+</div>
+<clr-modal [(clrModalOpen)]="aM.getData[0].Menu[0].MenuForm[0].modalForm">
+    <h3 class="modal-title" style="font-weight: bold">
+        <div class="row">
+            <div class="col-lg-8">
+                Datos Menú
+            </div>
+            <div class="col-lg-4" style="font-weight: bold; text-align: right; font-size: 13px">
+                <span>
+                    Modo:
+                </span>
+                <span>
+                    {{aM.getData[0].Menu[0].MenuForm[0].tituloForm}}
+                </span>
+            </div>
+        </div>
+
+    </h3>
+    <div class="modal-body">
+        <form>
+            <section class="form-block">
+                <!-- form -->
+                <my-menu-form></my-menu-form>
+                <!-- Mensaje Success -->
+                <my-mensaje-success></my-mensaje-success>
+            </section>
+        </form>
+    </div>
+    <div class="modal-footer">
+
+        <button [clrLoading]="saveLoading"
+                class="btn btn-success-outline"
+                (click)="saveForm()">Guardar</button>
+        <button class="btn btn-primary"
+                (click)="cerrarModalForm()">Cerrar</button>
+    </div>
+
+</clr-modal>
+<!------------------------------------------->
+<clr-modal [(clrModalOpen)]="aM.getData[0].Menu[0].MenuForm[0].modalDelete">
+    <h3 class="modal-title">Mensaje</h3>
+    <div class="modal-body">
+        <p>Desea eliminar el registro {{aM.getData[0].Menu[0].MenuForm[0].nombre}}.?</p>
+        <!--p style="color: red">..:: Esta Acción eliminará los registros asociado a esta opción ::..</p-->
+
+    </div>
+    <div class="modal-footer">
+        <button [clrLoading]="delloading"
+                class="btn btn-success-outline"
+                (click)="eliminarDatosMenu()">Eliminar</button>
+
+        <button class="btn btn-primary"
+                (click)="cerrarDel()">Cerrar</button>
+    </div>
+
+</clr-modal>

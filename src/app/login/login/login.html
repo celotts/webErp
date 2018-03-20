@@ -1,0 +1,44 @@
+<!--
+ * Fecha de la Creación: 18/03/2018.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: login.
+ * Comentario:
+-->
+<div class="login-wrapper">
+    <form class="login fondo" #values="ngForm">
+        <label class="title">
+            <!-- Label para mostrar Empresa -->
+            <my-login-form-label></my-login-form-label>
+        </label>
+        <div style="text-align: center">
+            <!-- Valida si muestra Loading Ver == 0 o False no muestra -->
+            <div *ngIf="ver==0;then content else other_content">here is ignored</div>
+            <ng-template #content>
+                <!-- Valida si Ver == 0 o False  muestra Foto-->
+                <my-login-foto></my-login-foto>
+            </ng-template>
+            <ng-template #other_content>
+                <!-- Valida si Ver == 1 o True  muestra spinner-->
+                <span class="spinner" >
+                    Loading...
+                </span>
+            </ng-template>
+        </div>
+        <div class="login-group">
+            <!-- Etiqueta formulario Login -->
+            <my-login-form
+                    (onLoad)="onLoad($event)" (onUser)="onUser($event)"
+                    (onPassword)="onPassword($event)"></my-login-form>
+            <div class="col-lg-12">
+                <!-- Etiqueta Mensaje de error -->
+                <my-mensaje-error></my-mensaje-error>
+            </div>
+            <!-- Btn Validar -->
+            <button (click)="validar()" class="btn btn-primary">Validar</button>
+            <!-- Bar progress -->
+            <div class="progress loop top" *ngIf="loading"><progress></progress></div>
+        </div>
+    </form>
+</div>

@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.avatarLogin {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+  height: 100px;
+  width: 100px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  /*background-repeat: no-repeat;
+  background-position: 50%;*/
+  border-radius: 50%;
+  background-size: 100% auto;
+}
+.avatarFoto {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+  height: 48px;
+  width: 48px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  /*background-repeat: no-repeat;
+  background-position: 50%;*/
+  background-size: 100% auto;
+}
+
+.avatarFotoGrid {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+  height: 30px;
+  width: 30px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  /*background-repeat: no-repeat;
+  background-position: 50%;*/
+  background-size: 100% auto;
+}
+agm-map {
+  height: 300px;
+}
+.pac-container {
+  z-index: 1054 !important;
+}
+.select{
+    background: #fff;
+    color: black;
+}
+.input.username{
+    background: #fff;
+    color: black;
+}
+.select option {
+    margin: 40px;
+    background: rgba(255, 255, 255, 255);
+    color: #000;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}

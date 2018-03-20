@@ -1,0 +1,20 @@
+<!--
+ * Fecha de la Creación: 09/11/2017.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: mensajeError.
+ * Comentario:msg Error
+-->
+<div class="alert alert-danger" *ngIf="aM.getData[0].alertas[0].msgError[0].ver">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+      </div>
+      <span class="alert-text">
+        {{aM.getData[0].alertas[0].msgError[0].mensaje}}
+      </span>
+    </div>
+  </div>
+</div>

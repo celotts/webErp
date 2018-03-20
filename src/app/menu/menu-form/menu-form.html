@@ -1,0 +1,50 @@
+<!--
+ * Fecha de la Creación: 13/03/2018.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: menu-grid.
+ * Comentario:
+-->
+<form>
+    <section class="form-block">
+        <div class="form-group row">
+            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <label for="gForm_1">Menú</label>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <input class="form-control" type="text" id="gForm_1"
+                       name="gForm_1"
+                       [(ngModel)]="aM.getData[0].Menu[0].MenuForm[0].nombre"
+                       placeholder="Menú" size="45">
+            </div>
+            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <label for="gForm_3">Tipo Menú</label>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <input class="form-control" type="text"
+                       [(ngModel)]="aM.getData[0].Menu[0].MenuForm[0].tipoMenu"
+                       name="gForm_3"
+                       id="gForm_3" placeholder="Tipo Menú" size="45">
+            </div>
+            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12" *ngIf="aM.getData[0].Menu[0].MenuForm[0].tipoMenu==1">
+                <label for="gForm_2">Controlador</label>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <input class="form-control" type="text"
+                       [(ngModel)]="aM.getData[0].Menu[0].MenuForm[0].controlador"
+                       name="gForm_2"
+                       id="gForm_2" placeholder="Menu" size="45">
+            </div>
+            <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12" *ngIf="aM.getData[0].Menu[0].MenuForm[0].tipoMenu==1">
+                <label for="gForm_4">Icono</label>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <input class="form-control" type="text"
+                       [(ngModel)]="aM.getData[0].Menu[0].MenuForm[0].icono"
+                       name="gForm_4"
+                       id="gForm_4" placeholder="Icono" size="45">
+            </div>
+        </div>
+    </section>
+</form>

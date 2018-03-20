@@ -1,0 +1,20 @@
+<!--
+ * Fecha de la Creación: 09/11/2017.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: mensajeOk.
+ * Comentario: msg Ok
+-->
+<div class="alert alert-success" *ngIf="aM.getData[0].alertas[0].msgOk[0].ver">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+      </div>
+      <span class="alert-text">
+        {{appModel.getData[0].alertas[0].msgOk[0].mensaje}}
+      </span>
+    </div>
+  </div>
+</div>

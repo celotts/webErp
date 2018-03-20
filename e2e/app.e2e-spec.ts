@@ -1,6 +1,6 @@
-import { AppPage } from './app.po';
+import {AppPage} from "./app.po";
 
-describe('web-erp App', () => {
+describe('rest-poliza App', () => {
   let page: AppPage;
 
   beforeEach(() => {

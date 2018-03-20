@@ -1,0 +1,32 @@
+<!--
+ * Fecha de la Creación: 20/12/2017.
+ * Usuario PC: carlos.
+ * Autor de la App: Ing. Msc. Carlos Lott.
+ * Desarrollado por la compañia: FC QUALITY C.A.
+ * Html: login-form.
+ * Comentario:
+-->
+<div class="row">
+  <!-- Input para introducir usuario -->
+  <input class="username fonts col-lg-12"
+       type="text"
+       [(ngModel)]="users"
+       (blur)="buscaFoto()"
+       (keyup.enter)="buscaFoto()"
+       autocomplete="off" autofocus
+       id="login_username"
+       name="login_username"
+       placeholder="Usuario">
+</div>
+
+<div class="row">
+  <!-- Input para introducir la clave -->
+  <input class="password fonts col-lg-12"
+       type="password"
+       [(ngModel)]="clave"
+       (blur)="getPassword()"
+       autocomplete="off"
+       id="login_password"
+       name="login_password"
+       placeholder="Clave">
+</div>

@@ -1,0 +1,14 @@
+.login-wrapper {
+  background: url("fondoApp.jpg");
+}
+.fondo {
+  background: white;
+}
+@media only screen and (max-width: 768px){
+  .fondo {
+    background:url("fondoApp.jpg");
+  }
+  .fonts{
+    color:#fff;
+  }
+}
