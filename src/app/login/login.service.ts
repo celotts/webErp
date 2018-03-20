@@ -90,7 +90,7 @@ export class LoginService {
 
   /**
    * Carga Variable de sesion.
-   * @param data
+   * @param data Lott
    */
   cargaVariableSesion(data):void{
     this.aS.cargaVariableSesion(data);
